@@ -58,7 +58,7 @@ development:
 test:
   <<: *default
   database: resort_booking_backend_app_test
-  username: resort_booking_backend_app
+  username: postgres
   password: jgrsfhhggff
   host: localhost
 
