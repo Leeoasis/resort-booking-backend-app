@@ -8,7 +8,6 @@ gem 'devise'
 gem 'font-awesome-sass'
 gem 'letter_opener', group: :development
 gem 'rails-controller-testing'
-gem 'rspec-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.5', '>= 7.0.5.1'
@@ -75,6 +74,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rspec-rails'
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
