@@ -7,6 +7,7 @@ gem 'cancancan'
 gem 'devise'
 gem 'font-awesome-sass'
 gem 'letter_opener', group: :development
+gem 'rack-cors'
 gem 'rails-controller-testing'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -72,9 +73,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'rspec-rails'
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
