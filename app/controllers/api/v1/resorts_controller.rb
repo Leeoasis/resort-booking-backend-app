@@ -9,10 +9,6 @@ module Api
         render json: @resorts
       end
 
-      def show
-        render json: @resort
-      end
-
       def create
         @resort = Resort.new(resort_params)
         if @resort.save
