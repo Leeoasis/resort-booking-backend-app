@@ -3,6 +3,8 @@ module Api
     class BookingsController < ApplicationController
       before_action :set_booking, only: %i[show update destroy]
       skip_before_action :verify_authenticity_token
+      before_action :authenticate_user!
+      load_and_authorize_resource
 
 
       def index

@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, format: { with: Devise.email_regexp }
+  validates :email, presence: true
 end

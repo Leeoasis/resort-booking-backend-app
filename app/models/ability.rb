@@ -2,14 +2,14 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # Define abilities based on the user role
+    user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
     else
-      can :read, Record
-      can :create, Record, user_id: user.id
-      can :update, Record, user_id: user.id
-      can :destroy, Record, user_id: user.id
+      can :read, Booking
+      can :create, Booking
+      can :update, Booking, user_id: user.id
+      can :destroy, Booking, user_id: user.id
     end
   end
 end
