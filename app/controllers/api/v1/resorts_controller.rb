@@ -3,8 +3,6 @@ module Api
     class ResortsController < ApplicationController
       before_action :set_resort, only: %i[show update destroy]
       skip_before_action :verify_authenticity_token
-      before_action :authenticate_user!
-      load_and_authorize_resource
 
       def index
         @resorts = Resort.all
