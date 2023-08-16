@@ -43,7 +43,7 @@ module Api
       end
 
       def booking_params
-        params.require(:booking).permit(:customer_name, :contact_information, :reservation_date, :duration, :num_guests)
+        params.require(:booking).permit(:selected_date, :selected_city, :user_id, :resort_id)
       end
     end
   end
