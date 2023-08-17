@@ -38,7 +38,7 @@ module Api
       end
 
       def resort_params
-        params.require(:resort).permit(:user_id,:name, :address, :description, :phone_number, :email, :city, :country, :available_rooms, :max_occupancy, :base_price)
+        params.require(:resort).permit(:user_id, :name, :address, :description, :phone_number, :email, :city, :country, :available_rooms, :max_occupancy, :base_price)
       end
     end
   end
