@@ -10,35 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_816_095_306) do
+ActiveRecord::Schema[7.0].define(version: 20_230_814_215_601) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
-
-  create_table 'bookings', force: :cascade do |t|
-    t.bigint 'user_id'
-    t.bigint 'resort_id'
-    t.date 'selected_date'
-    t.string 'selected_city'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['resort_id'], name: 'index_bookings_on_resort_id'
-    t.index ['user_id'], name: 'index_bookings_on_user_id'
-  end
-
-  create_table 'resorts', force: :cascade do |t|
-    t.string 'name'
-    t.string 'address'
-    t.text 'description'
-    t.string 'phone_number'
-    t.string 'email'
-    t.string 'city'
-    t.string 'country'
-    t.integer 'available_rooms'
-    t.integer 'max_occupancy'
-    t.decimal 'base_price'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-  end
 
   create_table 'users', force: :cascade do |t|
     t.string 'email', default: '', null: false
@@ -52,7 +26,4 @@ ActiveRecord::Schema[7.0].define(version: 20_230_816_095_306) do
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
-
-  add_foreign_key 'bookings', 'resorts'
-  add_foreign_key 'bookings', 'users'
 end
