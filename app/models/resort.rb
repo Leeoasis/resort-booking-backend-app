@@ -5,7 +5,7 @@ class Resort < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true
-  validates :phone_number, presence: true, numericality: { only_integer: true }
+  validates :phone_number, presence: true, format: { with: /\A\+\d+\z/, message: "should be in the format '+1234567890'" }
   validates :email, presence: true
   validates :country, presence: true
   validates :city, presence: true
