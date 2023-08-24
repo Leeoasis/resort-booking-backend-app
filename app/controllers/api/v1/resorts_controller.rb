@@ -37,6 +37,6 @@ class Api::V1::ResortsController < ApplicationController
 
   def resort_params
     params.require(:resort).permit(:user_id, :name, :address, :description, :phone_number, :email, :city, :country,
-                                   :available_rooms, :max_occupancy, :base_price)
+                                   :available_rooms, :max_occupancy, :base_price, :image_url)
   end
 end
