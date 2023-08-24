@@ -17,8 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_140505) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "resort_id", null: false
-    t.date "reservation_date"
-    t.date "returning_date"
+    t.date "selected_date"
     t.string "selected_city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,7 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_140505) do
   create_table "resorts", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "image_url"
     t.text "description"
     t.string "phone_number"
     t.string "email"
