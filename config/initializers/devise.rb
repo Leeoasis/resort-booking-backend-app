@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -12,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '02f71b4c81dc68597905d30901b2be410a81ecb9be1f334853f1daffb0715fcee0a42f5b152f8b0e50baa775aff14779d3495f74314f2e03069df316df879938'
+  # config.secret_key = 'b4df75cfa8776411844e7b8a0d1a76d83561354c829e0b08bc3495726064d0aba81d1c9b3b724fe21d4e4fcc84508adec3158fbdfef1bb85af73624618cceeaa'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -124,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'fec696e2881e38996b25ebbba83bf66517ad95b97c1c1e6e5617e2499bc64741d3ab00d6e6546298080131d1fdfc24b68220bc595ab593c12d60b1f52c3f8f17'
+  # config.pepper = '21303cb258034dc11026afe43dd19a07c195c6bcb96c442a95c548d12b3411badaa649787abe91991470b2f1befc0dc0eeab8cdf7a23ba04abb314af85404b5b'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -261,7 +263,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -308,4 +310,14 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.dispatch_requests = [
+      ['POST', %r{^/login$}],
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/logout$}]
+    ]
+    jwt.expiration_time = 5.minutes.to_i
+  end
 end
