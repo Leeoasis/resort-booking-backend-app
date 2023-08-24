@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  description: MyText
+  phone_number: MyString
+  email: MyString
+  city: MyString
+  country: MyString
+  available_rooms: 1
+  max_occupancy: 1
+  base_price: 9.99
+
+two:
+  name: MyString
+  address: MyString
+  description: MyText
+  phone_number: MyString
+  email: MyString
+  city: MyString
+  country: MyString
+  available_rooms: 1
+  max_occupancy: 1
+  base_price: 9.99
