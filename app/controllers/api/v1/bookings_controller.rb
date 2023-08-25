@@ -1,6 +1,6 @@
 class Api::V1::BookingsController < ApplicationController
   before_action :set_booking, only: %i[show update destroy]
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, raise: false
 
   def index
     @bookings = Booking.all
@@ -40,6 +40,6 @@ class Api::V1::BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:selected_date, :selected_city, :user_id, :resort_id)
+    params.require(:booking).permit(:reservation_date, :returning_date, :selected_city, :user_id, :resort_id)
   end
 end

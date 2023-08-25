@@ -1,6 +1,6 @@
 class Api::V1::ResortsController < ApplicationController
   before_action :set_resort, only: %i[show update destroy]
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, raise: false
 
   def index
     @resorts = Resort.all
@@ -37,6 +37,6 @@ class Api::V1::ResortsController < ApplicationController
 
   def resort_params
     params.require(:resort).permit(:user_id, :name, :address, :description, :phone_number, :email, :city, :country,
-                                   :available_rooms, :max_occupancy, :base_price)
+                                   :available_rooms, :max_occupancy, :base_price, :image_url)
   end
 end
