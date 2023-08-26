@@ -26,5 +26,5 @@ RSpec.describe User, type: :model do
       user = User.new(encrypted_password: 'a' * 52)
       expect(user).to_not be_valid
     end
-  end    
+  end
 end
