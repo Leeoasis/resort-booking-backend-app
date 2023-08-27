@@ -1,4 +1,4 @@
-require "swagger_helper"
+require 'swagger_helper'
 
 
 RSpec.describe Api::V1::BookingsController, type: :controller do
