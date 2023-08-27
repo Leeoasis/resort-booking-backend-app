@@ -1,6 +1,5 @@
 require 'swagger_helper'
 
-
 RSpec.describe Api::V1::BookingsController, type: :controller do
   let(:user) { User.create(email: 'john@example.com', password: '123456') }
   let(:resort) do
