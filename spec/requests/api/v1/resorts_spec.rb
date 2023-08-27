@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "swagger_helper"
 
 RSpec.describe Api::V1::ResortsController, type: :controller do
   let(:user) { User.create(email: 'john@example.com', password: '123456') }
