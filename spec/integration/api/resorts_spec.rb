@@ -34,7 +34,8 @@ RSpec.describe 'api/v1/resorts', type: :request do
             base_price: { type: :string },
             user_id: { type: :integer }
           },
-          required: ['name', 'address', 'image_url', 'description', 'phone_number', 'email', 'city', 'country', 'available_rooms', 'max_occupancy', 'base_price', 'user_id']
+          required: %w[name address image_url description phone_number email city country
+                       available_rooms max_occupancy base_price user_id]
         }
         response '200', 'resort created' do
           run_test!
@@ -84,11 +85,11 @@ RSpec.describe 'api/v1/resorts', type: :request do
             user_id: { type: :integer }
           }
         }
-    
+
         response '200', 'resort updated' do
           run_test!
         end
-    
+
         response '404', 'resort not found' do
           let(:id) { 'invalid' }
           run_test!
@@ -100,11 +101,11 @@ RSpec.describe 'api/v1/resorts', type: :request do
       delete 'Delete a resort' do
         produces 'application/json'
         parameter name: :id, in: :path, type: :integer
-    
+
         response '204', 'resort deleted' do
           run_test!
         end
-    
+
         response '404', 'resort not found' do
           let(:id) { 'invalid' }
           run_test!

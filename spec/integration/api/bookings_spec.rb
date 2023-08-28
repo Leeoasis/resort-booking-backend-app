@@ -27,7 +27,7 @@ RSpec.describe 'api/v1/bookings', type: :request do
             user_id: { type: :integer },
             resort_id: { type: :integer }
           },
-          required: ['booking_id', 'user_id', 'reservation_date', 'returning_date', 'selected_city']
+          required: %w[booking_id user_id reservation_date returning_date selected_city]
         }
         response '200', 'booking created' do
           run_test!
@@ -70,11 +70,11 @@ RSpec.describe 'api/v1/bookings', type: :request do
             resort_id: { type: :integer }
           }
         }
-    
+
         response '200', 'booking updated' do
           run_test!
         end
-    
+
         response '404', 'booking not found' do
           let(:id) { 'invalid' }
           run_test!
@@ -86,11 +86,11 @@ RSpec.describe 'api/v1/bookings', type: :request do
       delete 'Delete a booking' do
         produces 'application/json'
         parameter name: :id, in: :path, type: :integer
-    
+
         response '204', 'booking deleted' do
           run_test!
         end
-    
+
         response '404', 'booking not found' do
           let(:id) { 'invalid' }
           run_test!
