@@ -33,6 +33,7 @@ development:
 
   # The password associated with the postgres role (username).
   password: test123
+ 
 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
