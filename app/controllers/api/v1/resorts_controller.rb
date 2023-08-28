@@ -7,6 +7,11 @@ class Api::V1::ResortsController < ApplicationController
     render json: @resorts
   end
 
+  def show
+    @resort = Resort.find(params[:id])
+    render json: @resort
+  end
+
   def create
     @resort = Resort.new(resort_params)
     if @resort.save
