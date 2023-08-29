@@ -47,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_231955) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "photos", default: [], array: true
     t.index ["user_id"], name: "index_resorts_on_user_id"
   end
 
