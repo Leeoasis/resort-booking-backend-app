@@ -1,5 +1,5 @@
 class Resort < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   belongs_to :user
 
   validates :name, presence: true
@@ -13,4 +13,6 @@ class Resort < ApplicationRecord
   validates :max_occupancy, presence: true, numericality: { only_integer: true }
   validates :base_price, presence: true, numericality: { only_integer: true }
   validates :user_id, presence: true, numericality: { only_integer: true }
+
+  serialize :photos, Array
 end
