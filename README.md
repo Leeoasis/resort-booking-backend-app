@@ -129,6 +129,12 @@ To run tests, run the following command:
   rspec
 ```
 
+# 💻 React App <a name="react-app"></a>
+
+```sh
+  https://github.com/Leeoasis/resort-booking-frontend-app
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
