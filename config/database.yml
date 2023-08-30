@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: resort_booking_backend_app_production
-  username: resort_booking_backend_app
-  password: <%= ENV["RESORT_BOOKING_BACKEND_APP_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
+  database: resort-app
+  username: postgres
+  password: admin
