@@ -1,0 +1,224 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/bookings":
+    get:
+      summary: list bookings
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Create a booking
+      parameters: []
+      responses:
+        '200':
+          description: booking created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                selected_city:
+                  type: string
+                returning_date:
+                  type: date
+                reservation_date:
+                  type: date
+                user_id:
+                  type: integer
+                resort_id:
+                  type: integer
+              required:
+              - booking_id
+              - user_id
+              - reservation_date
+              - returning_date
+              - selected_city
+  "/api/v1/bookings/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show booking
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: Update a booking
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: booking updated
+        '404':
+          description: booking not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                selected_city:
+                  type: string
+                returning_date:
+                  type: date
+                reservation_date:
+                  type: date
+                user_id:
+                  type: integer
+                resort_id:
+                  type: integer
+    delete:
+      summary: Delete a booking
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: booking deleted
+        '404':
+          description: booking not found
+  "/api/v1/resorts":
+    get:
+      summary: list resorts
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Create a resort
+      parameters: []
+      responses:
+        '200':
+          description: resort created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+                description:
+                  type: string
+                phone_number:
+                  type: string
+                email:
+                  type: string
+                city:
+                  type: string
+                country:
+                  type: string
+                available_rooms:
+                  type: integer
+                max_occupancy:
+                  type: integer
+                base_price:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - name
+              - address
+              - image_url
+              - description
+              - phone_number
+              - email
+              - city
+              - country
+              - available_rooms
+              - max_occupancy
+              - base_price
+              - user_id
+  "/api/v1/resorts/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show resort
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: Update a resort
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: resort updated
+        '404':
+          description: resort not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+                description:
+                  type: string
+                phone_number:
+                  type: string
+                email:
+                  type: string
+                city:
+                  type: string
+                country:
+                  type: string
+                available_rooms:
+                  type: integer
+                max_occupancy:
+                  type: integer
+                base_price:
+                  type: string
+                user_id:
+                  type: integer
+    delete:
+      summary: Delete a resort
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: resort deleted
+        '404':
+          description: resort not found
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
